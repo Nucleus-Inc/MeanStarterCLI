@@ -20,12 +20,10 @@ module.exports = function initCommand(program) {
                 shellStr += ' ' + option
             }
 
-            exec(shellStr, (code) => {
-                if (code !== 0) {
-                    log(chalk.red.bold('Oops ... Something wrong happened, please try again.'))
-                    exit(1)
-                }
-                log(chalk.green.bold('Finish cloning Mean Starter !'))
-            })
+            if (exec(shellStr).code !== 0) {
+                log(chalk.red.bold('Oops ... Something wrong happened, please try again.'))
+                exit(1)
+            }
+            log(chalk.green.bold('Finish cloning Mean Starter !'))
         })
 }
