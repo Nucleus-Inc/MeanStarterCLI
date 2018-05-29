@@ -14,7 +14,7 @@ module.exports = function initCommand(program) {
                 exit(1)
             }
 
-            let shellStr = 'git clone https://github.com/Igor-Lopes/mstest.git'
+            let shellStr = 'git clone https://github.com/Nucleus-Inc/MeanStarter.git'
 
             if (typeof (option) === 'string') {
                 shellStr += ' ' + option
