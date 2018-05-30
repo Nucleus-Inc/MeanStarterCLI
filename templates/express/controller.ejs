@@ -3,11 +3,13 @@ const { validationResult } = require('express-validator/check')
 module.exports = (app) => {
   const controller = {}
 
-  controller.get = async (req, res, next) => {
+  controller.getHello = async (req, res, next) => {
     try {
       validationResult(req).throw()
 
-      res.send('hello')
+      res.send({
+        msg: 'Hello'
+      })
     } catch (ex) {
       next(ex)
     }
