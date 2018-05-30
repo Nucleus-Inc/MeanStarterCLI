@@ -14,11 +14,13 @@ module.exports = function initCommand(program) {
                 exit(1)
             }
 
-            let shellStr = 'git clone https://github.com/Nucleus-Inc/MeanStarter.git'
+            let shellStr = 'git clone --progress https://github.com/Nucleus-Inc/MeanStarter.git'
 
             if (typeof (option) === 'string') {
                 shellStr += ' ' + option
             }
+
+            log(chalk.cyan('Started git repo cloning ...'))
 
             if (exec(shellStr).code !== 0) {
                 log(chalk.red.bold('Oops ... Something wrong happened, please try again.'))
