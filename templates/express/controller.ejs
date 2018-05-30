@@ -1,0 +1,17 @@
+const { validationResult } = require('express-validator/check')
+
+module.exports = (app) => {
+  const controller = {}
+
+  controller.get = async (req, res, next) => {
+    try {
+      validationResult(req).throw()
+
+      res.send('hello')
+    } catch (ex) {
+      next(ex)
+    }
+  }
+
+  return controller
+}
