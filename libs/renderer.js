@@ -24,5 +24,25 @@ module.exports = {
             log(chalk.yellow(e))
             exit(1)
         }
+    },
+    renderRoute: () => {
+        try {
+            let template = fs.readFileSync('./templates/express/route.ejs', 'utf-8')
+            let js = ejs.render(template, {
+              data:{}
+            })
+            let targetDir = 'app/routes/hello'
+            let filename = 'index.js'
+
+            dir.mkDirByPathSync(targetDir)
+
+            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+
+            log(chalk.green.bold('Express Route Generated !'))
+        } catch (e) {
+            log(chalk.red.bold('Error while generating Express controller'))
+            log(chalk.yellow(e))
+            exit(1)
+        }
     }
 }

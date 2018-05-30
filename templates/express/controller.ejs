@@ -8,7 +8,7 @@ module.exports = (app) => {
       validationResult(req).throw()
 
       res.send({
-        msg: 'Hello'
+        msg: 'Hello ' + req.params.name + ' !'
       })
     } catch (ex) {
       next(ex)
