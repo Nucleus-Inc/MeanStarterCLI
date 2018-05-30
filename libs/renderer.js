@@ -64,5 +64,25 @@ module.exports = {
             log(chalk.yellow(e))
             exit(1)
         }
+    },
+    renderModel: () => {
+        try {
+            let template = fs.readFileSync('./templates/express/model.ejs', 'utf-8')
+            let js = ejs.render(template, {
+              data:{}
+            })
+            let targetDir = 'app/models'
+            let filename = 'Post.js'
+
+            dir.mkDirByPathSync(targetDir)
+
+            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+
+            log(chalk.green.bold('Express Model Generated !'))
+        } catch (e) {
+            log(chalk.red.bold('Error while generating Express Model'))
+            log(chalk.yellow(e))
+            exit(1)
+        }
     }
 }
