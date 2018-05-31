@@ -124,5 +124,25 @@ module.exports = {
             log(chalk.yellow(e))
             exit(1)
         }
+    },
+    renderNgFactory: () => {
+        try {
+            let template = fs.readFileSync('./templates/angularjs/factory.ejs', 'utf-8')
+            let js = ejs.render(template, {
+              data:{}
+            })
+            let targetDir = 'public/app/factories/name'
+            let filename = 'NameFactory.js'
+
+            dir.mkDirByPathSync(targetDir)
+
+            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+
+            log(chalk.green.bold('Angular Factory Generated !'))
+        } catch (e) {
+            log(chalk.red.bold('Error while generating AngularJS Factory'))
+            log(chalk.yellow(e))
+            exit(1)
+        }
     }
 }
