@@ -92,7 +92,7 @@ module.exports = {
               data:{}
             })
             let targetDir = 'public/app/directives/name'
-            let filename = 'directive.js'
+            let filename = 'name.js'
 
             dir.mkDirByPathSync(targetDir)
 
@@ -100,7 +100,27 @@ module.exports = {
 
             log(chalk.green.bold('Angular Directive Generated !'))
         } catch (e) {
-            log(chalk.red.bold('Error while generating Express Model'))
+            log(chalk.red.bold('Error while generating AngularJS Directive'))
+            log(chalk.yellow(e))
+            exit(1)
+        }
+    },
+    renderNgController: () => {
+        try {
+            let template = fs.readFileSync('./templates/angularjs/controller.ejs', 'utf-8')
+            let js = ejs.render(template, {
+              data:{}
+            })
+            let targetDir = 'public/app/controllers/name'
+            let filename = 'NameCtrl.js'
+
+            dir.mkDirByPathSync(targetDir)
+
+            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+
+            log(chalk.green.bold('Angular Controller Generated !'))
+        } catch (e) {
+            log(chalk.red.bold('Error while generating AngularJS Controller'))
             log(chalk.yellow(e))
             exit(1)
         }
