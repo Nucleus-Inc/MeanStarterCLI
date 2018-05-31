@@ -144,5 +144,25 @@ module.exports = {
             log(chalk.yellow(e))
             exit(1)
         }
+    },
+    renderNgFilter: () => {
+        try {
+            let template = fs.readFileSync('./templates/angularjs/filter.ejs', 'utf-8')
+            let js = ejs.render(template, {
+              data:{}
+            })
+            let targetDir = 'public/app/filters/name'
+            let filename = 'Name.js'
+
+            dir.mkDirByPathSync(targetDir)
+
+            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+
+            log(chalk.green.bold('Angular Filter Generated !'))
+        } catch (e) {
+            log(chalk.red.bold('Error while generating AngularJS Filter'))
+            log(chalk.yellow(e))
+            exit(1)
+        }
     }
 }
