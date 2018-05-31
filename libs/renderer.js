@@ -164,5 +164,25 @@ module.exports = {
             log(chalk.yellow(e))
             exit(1)
         }
+    },
+    renderNgService: () => {
+        try {
+            let template = fs.readFileSync('./templates/angularjs/service.ejs', 'utf-8')
+            let js = ejs.render(template, {
+              data:{}
+            })
+            let targetDir = 'public/app/services/name'
+            let filename = 'NameService.js'
+
+            dir.mkDirByPathSync(targetDir)
+
+            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+
+            log(chalk.green.bold('Angular Service Generated !'))
+        } catch (e) {
+            log(chalk.red.bold('Error while generating AngularJS Service'))
+            log(chalk.yellow(e))
+            exit(1)
+        }
     }
 }
