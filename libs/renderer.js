@@ -84,5 +84,25 @@ module.exports = {
             log(chalk.yellow(e))
             exit(1)
         }
+    },
+    renderNgDirective: () => {
+        try {
+            let template = fs.readFileSync('./templates/angularjs/directive.ejs', 'utf-8')
+            let js = ejs.render(template, {
+              data:{}
+            })
+            let targetDir = 'public/app/directives/name'
+            let filename = 'directive.js'
+
+            dir.mkDirByPathSync(targetDir)
+
+            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+
+            log(chalk.green.bold('Angular Directive Generated !'))
+        } catch (e) {
+            log(chalk.red.bold('Error while generating Express Model'))
+            log(chalk.yellow(e))
+            exit(1)
+        }
     }
 }

@@ -1,0 +1,15 @@
+(() => {
+  angular.module('AppName').directive('name', () => {
+    return {
+      restrict: 'AEC',
+      require: 'ngModel',
+      scope: {
+        ngModel: '=ngModel'
+      },
+      controller: 'NameCtrl as nameCtrl',
+      link: (scope, iElement, iAttrs, ngModelCtrl) => {
+
+      }
+    }
+  })
+})()
