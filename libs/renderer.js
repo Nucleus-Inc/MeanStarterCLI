@@ -5,18 +5,18 @@ const log = console.log
 const dir = require('./dir.js')
 
 module.exports = {
-    renderExpressController: () => {
+    renderExpressController: (_target, _filename) => {
         try {
             let template = fs.readFileSync('./templates/express/controller.ejs', 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
-            let targetDir = 'app/controllers/hello'
-            let filename = 'index.js'
+            let targetDir = _target || 'app/controllers/hello'
+            let filename = _filename || 'index'
 
             dir.mkDirByPathSync(targetDir)
 
-            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+            fs.writeFileSync('./' + targetDir + '/' + filename + '.js', js, 'utf8')
 
             log(chalk.green.bold('Express Controller Generated !'))
         } catch (e) {
