@@ -3,9 +3,11 @@ const rederer = require('../libs/renderer.js')
 
 module.exports = function initCommand(program) {
     program
-        .command('express-lib')
-        .description('Generate express lib')
-        .action((command) => {
-            rederer.renderExpressLib()
+        .command('express-lib [cmd]')
+        .option('-d, --dir <dir>', 'Target Directory')
+        .option('-f, --filename <filename>', 'filename')
+        .description('Generate Express Lib')
+        .action((cmd, options) => {
+            rederer.renderExpressController(options.dir, options.filename)
         })
 }

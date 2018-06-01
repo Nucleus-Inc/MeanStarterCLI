@@ -45,14 +45,14 @@ module.exports = {
             exit(1)
         }
     },
-    renderExpressLib: () => {
+    renderExpressLib: (_target, _filename) => {
         try {
             let template = fs.readFileSync('./templates/express/lib.ejs', 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
-            let targetDir = 'app/libs/hello'
-            let filename = 'index.js'
+            let targetDir = _target || 'app/libs/hello'
+            let filename = _filename || 'index.js'
 
             dir.mkDirByPathSync(targetDir)
 
