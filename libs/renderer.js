@@ -25,18 +25,18 @@ module.exports = {
             exit(1)
         }
     },
-    renderExpressRoute: () => {
+    renderExpressRoute: (_target, _filename) => {
         try {
             let template = fs.readFileSync('./templates/express/route.ejs', 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
-            let targetDir = 'app/routes/hello'
-            let filename = 'index.js'
+            let targetDir = _target || 'app/routes/hello'
+            let filename = _filename || 'index'
 
             dir.mkDirByPathSync(targetDir)
 
-            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+            fs.writeFileSync('./' + targetDir + '/' + filename + '.js', js, 'utf8')
 
             log(chalk.green.bold('Express Route Generated !'))
         } catch (e) {
@@ -52,11 +52,11 @@ module.exports = {
                 data: {}
             })
             let targetDir = _target || 'app/libs/hello'
-            let filename = _filename || 'index.js'
+            let filename = _filename || 'index'
 
             dir.mkDirByPathSync(targetDir)
 
-            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+            fs.writeFileSync('./' + targetDir + '/' + filename + '.js', js, 'utf8')
 
             log(chalk.green.bold('Express Lib Generated !'))
         } catch (e) {
@@ -65,18 +65,18 @@ module.exports = {
             exit(1)
         }
     },
-    renderExpressModel: () => {
+    renderExpressModel: (_target, _filename) => {
         try {
             let template = fs.readFileSync('./templates/express/model.ejs', 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
-            let targetDir = 'app/models'
-            let filename = 'User.js'
+            let targetDir = _target || 'app/models'
+            let filename = _filename || 'User'
 
             dir.mkDirByPathSync(targetDir)
 
-            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+            fs.writeFileSync('./' + targetDir + '/' + filename + '.js', js, 'utf8')
 
             log(chalk.green.bold('Express Model Generated !'))
         } catch (e) {
@@ -85,18 +85,18 @@ module.exports = {
             exit(1)
         }
     },
-    renderExpressSpec: () => {
+    renderExpressSpec: (_target, _filename) => {
         try {
             let template = fs.readFileSync('./templates/express/spec.ejs', 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
-            let targetDir = 'specs/resources/hello'
-            let filename = 'index.spec.js'
+            let targetDir = _target || 'specs/resources/hello'
+            let filename = _filename || 'index.spec'
 
             dir.mkDirByPathSync(targetDir)
 
-            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+            fs.writeFileSync('./' + targetDir + '/' + filename + '.spec.js', js, 'utf8')
 
             log(chalk.green.bold('Mocha Spec Generated !'))
         } catch (e) {

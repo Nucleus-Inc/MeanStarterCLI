@@ -8,6 +8,6 @@ module.exports = function initCommand(program) {
         .option('-f, --filename <filename>', 'filename')
         .description('Generate Express Lib')
         .action((cmd, options) => {
-            rederer.renderExpressController(options.dir, options.filename)
+            rederer.renderExpressLib(options.dir, options.filename)
         })
 }
