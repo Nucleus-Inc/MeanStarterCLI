@@ -1,0 +1,22 @@
+
+const chai = require('chai')
+const chaiHttp = require('chai-http')
+const server = require('app.js')
+should = chai.should()
+
+chai.use(chaiHttp)
+
+describe('Name', () => {
+  it('should successfully get a hello on /hello/:name GET', (done) => {
+    chai.request(server)
+      .get('/hello/JackSparrow')
+      .end((err, res) => {
+        res.should.have.status(200)
+        res.body.should.be.a('object')
+        res.body.should.have.property('msg')
+        res.body.msg.should.be.a('string')
+        res.body.msg.should.be.eql('JackSparrow')
+        done()
+      })
+  })
+})

@@ -9,7 +9,7 @@ module.exports = {
         try {
             let template = fs.readFileSync('./templates/express/controller.ejs', 'utf-8')
             let js = ejs.render(template, {
-              data:{}
+                data: {}
             })
             let targetDir = 'app/controllers/hello'
             let filename = 'index.js'
@@ -29,7 +29,7 @@ module.exports = {
         try {
             let template = fs.readFileSync('./templates/express/route.ejs', 'utf-8')
             let js = ejs.render(template, {
-              data:{}
+                data: {}
             })
             let targetDir = 'app/routes/hello'
             let filename = 'index.js'
@@ -49,7 +49,7 @@ module.exports = {
         try {
             let template = fs.readFileSync('./templates/express/lib.ejs', 'utf-8')
             let js = ejs.render(template, {
-              data:{}
+                data: {}
             })
             let targetDir = 'app/libs/hello'
             let filename = 'index.js'
@@ -69,7 +69,7 @@ module.exports = {
         try {
             let template = fs.readFileSync('./templates/express/model.ejs', 'utf-8')
             let js = ejs.render(template, {
-              data:{}
+                data: {}
             })
             let targetDir = 'app/models'
             let filename = 'Post.js'
@@ -85,11 +85,31 @@ module.exports = {
             exit(1)
         }
     },
+    renderMochaSpec: () => {
+        try {
+            let template = fs.readFileSync('./templates/express/spec.ejs', 'utf-8')
+            let js = ejs.render(template, {
+                data: {}
+            })
+            let targetDir = 'specs/resources/hello'
+            let filename = 'index.spec.js'
+
+            dir.mkDirByPathSync(targetDir)
+
+            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+
+            log(chalk.green.bold('Mocha Spec Generated !'))
+        } catch (e) {
+            log(chalk.red.bold('Error while generating Mocha Spec'))
+            log(chalk.yellow(e))
+            exit(1)
+        }
+    },
     renderNgDirective: () => {
         try {
             let template = fs.readFileSync('./templates/angularjs/directive.ejs', 'utf-8')
             let js = ejs.render(template, {
-              data:{}
+                data: {}
             })
             let targetDir = 'public/app/directives/name'
             let filename = 'name.js'
@@ -109,7 +129,7 @@ module.exports = {
         try {
             let template = fs.readFileSync('./templates/angularjs/controller.ejs', 'utf-8')
             let js = ejs.render(template, {
-              data:{}
+                data: {}
             })
             let targetDir = 'public/app/controllers/name'
             let filename = 'NameCtrl.js'
@@ -129,7 +149,7 @@ module.exports = {
         try {
             let template = fs.readFileSync('./templates/angularjs/factory.ejs', 'utf-8')
             let js = ejs.render(template, {
-              data:{}
+                data: {}
             })
             let targetDir = 'public/app/factories/name'
             let filename = 'NameFactory.js'
@@ -149,7 +169,7 @@ module.exports = {
         try {
             let template = fs.readFileSync('./templates/angularjs/filter.ejs', 'utf-8')
             let js = ejs.render(template, {
-              data:{}
+                data: {}
             })
             let targetDir = 'public/app/filters/name'
             let filename = 'Name.js'
@@ -169,7 +189,7 @@ module.exports = {
         try {
             let template = fs.readFileSync('./templates/angularjs/service.ejs', 'utf-8')
             let js = ejs.render(template, {
-              data:{}
+                data: {}
             })
             let targetDir = 'public/app/services/name'
             let filename = 'NameService.js'
