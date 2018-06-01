@@ -105,18 +105,18 @@ module.exports = {
             exit(1)
         }
     },
-    renderNgDirective: () => {
+    renderNgDirective: (_target, _filename) => {
         try {
             let template = fs.readFileSync('./templates/angularjs/directive.ejs', 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
-            let targetDir = 'public/app/directives/name'
-            let filename = 'name.js'
+            let targetDir = _target || 'public/app/directives/name'
+            let filename = _filename || 'name'
 
             dir.mkDirByPathSync(targetDir)
 
-            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+            fs.writeFileSync('./' + targetDir + '/' + filename + '.js', js, 'utf8')
 
             log(chalk.green.bold('Angular Directive Generated !'))
         } catch (e) {
@@ -125,18 +125,18 @@ module.exports = {
             exit(1)
         }
     },
-    renderNgController: () => {
+    renderNgController: (_target, _filename) => {
         try {
             let template = fs.readFileSync('./templates/angularjs/controller.ejs', 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
-            let targetDir = 'public/app/controllers/name'
-            let filename = 'NameCtrl.js'
+            let targetDir = _target || 'public/app/controllers/name'
+            let filename = _filename || 'NameCtrl'
 
             dir.mkDirByPathSync(targetDir)
 
-            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+            fs.writeFileSync('./' + targetDir + '/' + filename + '.js', js, 'utf8')
 
             log(chalk.green.bold('Angular Controller Generated !'))
         } catch (e) {
@@ -145,18 +145,18 @@ module.exports = {
             exit(1)
         }
     },
-    renderNgFactory: () => {
+    renderNgFactory: (_target, _filename) => {
         try {
             let template = fs.readFileSync('./templates/angularjs/factory.ejs', 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
-            let targetDir = 'public/app/factories/name'
-            let filename = 'NameFactory.js'
+            let targetDir = _target || 'public/app/factories/name'
+            let filename = _filename || 'NameFactory'
 
             dir.mkDirByPathSync(targetDir)
 
-            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+            fs.writeFileSync('./' + targetDir + '/' + filename + '.js', js, 'utf8')
 
             log(chalk.green.bold('Angular Factory Generated !'))
         } catch (e) {
@@ -165,18 +165,18 @@ module.exports = {
             exit(1)
         }
     },
-    renderNgFilter: () => {
+    renderNgFilter: (_target, _filename) => {
         try {
             let template = fs.readFileSync('./templates/angularjs/filter.ejs', 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
-            let targetDir = 'public/app/filters/name'
-            let filename = 'Name.js'
+            let targetDir = _target || 'public/app/filters/name'
+            let filename = _filename || 'Name'
 
             dir.mkDirByPathSync(targetDir)
 
-            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+            fs.writeFileSync('./' + targetDir + '/' + filename + '.js', js, 'utf8')
 
             log(chalk.green.bold('Angular Filter Generated !'))
         } catch (e) {
@@ -185,18 +185,18 @@ module.exports = {
             exit(1)
         }
     },
-    renderNgService: () => {
+    renderNgService: (_target, _filename) => {
         try {
             let template = fs.readFileSync('./templates/angularjs/service.ejs', 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
-            let targetDir = 'public/app/services/name'
-            let filename = 'NameService.js'
+            let targetDir = _target || 'public/app/services/name'
+            let filename = _filename || 'NameService'
 
             dir.mkDirByPathSync(targetDir)
 
-            fs.writeFileSync('./' + targetDir + '/' + filename, js, 'utf8')
+            fs.writeFileSync('./' + targetDir + '/' + filename + '.js', js, 'utf8')
 
             log(chalk.green.bold('Angular Service Generated !'))
         } catch (e) {
