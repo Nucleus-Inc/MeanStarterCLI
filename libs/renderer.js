@@ -5,7 +5,7 @@ const log = console.log
 const dir = require('./dir.js')
 
 module.exports = {
-    renderController: () => {
+    renderExpressController: () => {
         try {
             let template = fs.readFileSync('./templates/express/controller.ejs', 'utf-8')
             let js = ejs.render(template, {
@@ -25,7 +25,7 @@ module.exports = {
             exit(1)
         }
     },
-    renderRoute: () => {
+    renderExpressRoute: () => {
         try {
             let template = fs.readFileSync('./templates/express/route.ejs', 'utf-8')
             let js = ejs.render(template, {
@@ -45,7 +45,7 @@ module.exports = {
             exit(1)
         }
     },
-    renderLib: () => {
+    renderExpressLib: () => {
         try {
             let template = fs.readFileSync('./templates/express/lib.ejs', 'utf-8')
             let js = ejs.render(template, {
@@ -65,7 +65,7 @@ module.exports = {
             exit(1)
         }
     },
-    renderModel: () => {
+    renderExpressModel: () => {
         try {
             let template = fs.readFileSync('./templates/express/model.ejs', 'utf-8')
             let js = ejs.render(template, {
@@ -85,7 +85,7 @@ module.exports = {
             exit(1)
         }
     },
-    renderMochaSpec: () => {
+    renderExpressSpec: () => {
         try {
             let template = fs.readFileSync('./templates/express/spec.ejs', 'utf-8')
             let js = ejs.render(template, {

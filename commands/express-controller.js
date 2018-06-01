@@ -6,6 +6,6 @@ module.exports = function initCommand(program) {
         .command('express-controller')
         .description('Generate express controller')
         .action((command) => {
-            rederer.renderController()
+            rederer.renderExpressController()
         })
 }

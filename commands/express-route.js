@@ -6,6 +6,6 @@ module.exports = function initCommand(program) {
         .command('express-route')
         .description('Generate express route')
         .action((command) => {
-            rederer.renderRoute()
+            rederer.renderExpressRoute()
         })
 }

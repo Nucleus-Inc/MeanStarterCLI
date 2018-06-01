@@ -6,6 +6,6 @@ module.exports = function initCommand(program) {
         .command('express-lib')
         .description('Generate express lib')
         .action((command) => {
-            rederer.renderLib()
+            rederer.renderExpressLib()
         })
 }
