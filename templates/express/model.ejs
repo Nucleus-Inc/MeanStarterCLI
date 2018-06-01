@@ -2,11 +2,7 @@ const mongoose = require('mongoose')
 
 module.exports = () => {
   const schema = mongoose.Schema({
-    title: {
-      type: String,
-      required: true
-    },
-    body: {
+    name: {
       type: String,
       required: true
     }
@@ -14,5 +10,9 @@ module.exports = () => {
     timestamps: true
   })
 
-  return mongoose.model('Post', schema)
+  schema.methods.generateHello = (name) => {
+    return 'Hello ' + name + ' !'
+  }
+
+  return mongoose.model('User', schema)
 }

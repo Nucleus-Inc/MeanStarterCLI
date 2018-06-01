@@ -72,7 +72,7 @@ module.exports = {
                 data: {}
             })
             let targetDir = 'app/models'
-            let filename = 'Post.js'
+            let filename = 'User.js'
 
             dir.mkDirByPathSync(targetDir)
 
