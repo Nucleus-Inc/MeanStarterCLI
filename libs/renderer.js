@@ -3,11 +3,13 @@ const fs = require('fs')
 const chalk = require('chalk')
 const log = console.log
 const dir = require('./dir.js')
+const path = require('path')
 
 module.exports = {
     renderExpressController: (_target, _filename) => {
+        console.log(__dirname)
         try {
-            let template = fs.readFileSync('./templates/express/controller.ejs', 'utf-8')
+            let template = fs.readFileSync(path.resolve(__dirname, '../templates/express/controller.ejs'), 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
@@ -27,7 +29,7 @@ module.exports = {
     },
     renderExpressRoute: (_target, _filename) => {
         try {
-            let template = fs.readFileSync('./templates/express/route.ejs', 'utf-8')
+            let template = fs.readFileSync(path.resolve(__dirname, '../templates/express/route.ejs'), 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
@@ -47,7 +49,7 @@ module.exports = {
     },
     renderExpressLib: (_target, _filename) => {
         try {
-            let template = fs.readFileSync('./templates/express/lib.ejs', 'utf-8')
+            let template = fs.readFileSync(path.resolve(__dirname, '../templates/express/lib.ejs'), 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
@@ -67,7 +69,7 @@ module.exports = {
     },
     renderExpressModel: (_target, _filename) => {
         try {
-            let template = fs.readFileSync('./templates/express/model.ejs', 'utf-8')
+            let template = fs.readFileSync(path.resolve(__dirname, '../templates/express/model.ejs'), 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
@@ -87,7 +89,7 @@ module.exports = {
     },
     renderExpressSpec: (_target, _filename) => {
         try {
-            let template = fs.readFileSync('./templates/express/spec.ejs', 'utf-8')
+            let template = fs.readFileSync(path.resolve(__dirname, '../templates/express/spec.ejs'), 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
@@ -107,7 +109,7 @@ module.exports = {
     },
     renderNgDirective: (_target, _filename) => {
         try {
-            let template = fs.readFileSync('./templates/angularjs/directive.ejs', 'utf-8')
+            let template = fs.readFileSync(path.resolve(__dirname, '../templates/express/directive.ejs'), 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
@@ -127,7 +129,7 @@ module.exports = {
     },
     renderNgController: (_target, _filename) => {
         try {
-            let template = fs.readFileSync('./templates/angularjs/controller.ejs', 'utf-8')
+            let template = fs.readFileSync(path.resolve(__dirname, '../templates/angularjs/controller.ejs'), 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
@@ -147,7 +149,7 @@ module.exports = {
     },
     renderNgFactory: (_target, _filename) => {
         try {
-            let template = fs.readFileSync('./templates/angularjs/factory.ejs', 'utf-8')
+            let template = fs.readFileSync(path.resolve(__dirname, '../templates/angularjs/factory.ejs'), 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
@@ -167,7 +169,7 @@ module.exports = {
     },
     renderNgFilter: (_target, _filename) => {
         try {
-            let template = fs.readFileSync('./templates/angularjs/filter.ejs', 'utf-8')
+            let template = fs.readFileSync(path.resolve(__dirname, '../templates/angularjs/filter.ejs'), 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
@@ -187,7 +189,7 @@ module.exports = {
     },
     renderNgService: (_target, _filename) => {
         try {
-            let template = fs.readFileSync('./templates/angularjs/service.ejs', 'utf-8')
+            let template = fs.readFileSync(path.resolve(__dirname, '../templates/angularjs/service.ejs'), 'utf-8')
             let js = ejs.render(template, {
                 data: {}
             })
